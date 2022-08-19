@@ -144,7 +144,6 @@ namespace AutomateCoA
                     //search button
                     mydriver.FindElement(By.XPath("//*[@id='page']/div/section[2]/div/div/div/div/div/form/button[2]")).Click();
                     //certificate inside of table
-                    //mydriver.FindElement(By.XPath("//*[@id='page']/div/section[1]/div/div[2]/div[1]/div/div[2]/table/tbody/tr[2]/td[5]/i")).Click();
 
                     //click on cookie accept button
                     IWebElement certbtn = wait.Until(drvr => drvr.FindElement(By.XPath("//*[@id='page']/div/section[1]/div/div[2]/div[1]/div/div[2]/table/tbody/tr[2]/td[5]/i")));
@@ -157,17 +156,18 @@ namespace AutomateCoA
                     //defeats automation blocking. BOOYAH!
                     mydriver.Manage().Cookies.DeleteAllCookies();
 
-                    //catalog number  ItemBox1.Text
-                    mydriver.FindElement(By.XPath("//*[@id='COAOrderNumber']")).SendKeys("1460040020");
-                    //lot number  LotBox1.Text
-                    mydriver.FindElement(By.XPath("//*[@id='COABatchNumber']")).SendKeys("726353");
+                    //catalog number  
+                    mydriver.FindElement(By.XPath("//*[@id='COAOrderNumber']")).SendKeys(ItemBox1.Text);
+                    //lot number  
+                    mydriver.FindElement(By.XPath("//*[@id='COABatchNumber']")).SendKeys(LotBox1.Text);
                     //mydriver.FindElement(By.XPath("//*[@id='COABatchNumber']")).SendKeys(OpenQA.Selenium.Keys.Return);
                     //search button
                     mydriver.FindElement(By.XPath("//*[@id='s_mbqBTWQAAAFKyVsIik_d_find']")).SendKeys(OpenQA.Selenium.Keys.Return);
+                    
                     //certificate inside of table
-
-                    certbtn = wait.Until(drvr => drvr.FindElement(By.CssSelector("#result-FvCbqBDaYAAAFErYZWba4i > table > tbody > tr > td:nth-child(1) > a")));
-                    certbtn.Click();
+                    //this will break  results is tied to individual coa.  leaving window open for user to manually click and download
+                    //certbtn = wait.Until(drvr => drvr.FindElement(By.CssSelector("#result-FvCbqBDaYAAAFErYZWba4i > table > tbody > tr > td:nth-child(1) > a")));
+                    //certbtn.Click();
 
                     break;
             }
@@ -186,11 +186,9 @@ namespace AutomateCoA
         }
 
 
-        //shared scope
+        //cant think of a better way to scope
         private string qrrPDFPath;
         private string coaPDFPath;
-
-
         //merge and save QRR and CoA PDF
         private void QRRPDFBtn_Click(object sender, EventArgs e)
         {

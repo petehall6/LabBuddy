@@ -154,20 +154,20 @@ namespace AutomateCoA
 
                 case "MILLIPORE":
                     mydriver.Url = "https://www.emdmillipore.com/US/en/documents/Z.qb.qB.tecAAAFDDJUsznLq,nav#s_mbqBTWQAAAFKyVsIik_d";
+                    //defeats automation blocking. BOOYAH!
+                    mydriver.Manage().Cookies.DeleteAllCookies();
 
                     //catalog number  ItemBox1.Text
                     mydriver.FindElement(By.XPath("//*[@id='COAOrderNumber']")).SendKeys("1460040020");
                     //lot number  LotBox1.Text
                     mydriver.FindElement(By.XPath("//*[@id='COABatchNumber']")).SendKeys("726353");
-                    mydriver.FindElement(By.XPath("//*[@id='COABatchNumber']")).SendKeys(OpenQA.Selenium.Keys.Return);
+                    //mydriver.FindElement(By.XPath("//*[@id='COABatchNumber']")).SendKeys(OpenQA.Selenium.Keys.Return);
                     //search button
-                    //mydriver.FindElement(By.XPath("//*[@id='s_mbqBTWQAAAFKyVsIik_d_find']")).SendKeys(OpenQA.Selenium.Keys.Return);
+                    mydriver.FindElement(By.XPath("//*[@id='s_mbqBTWQAAAFKyVsIik_d_find']")).SendKeys(OpenQA.Selenium.Keys.Return);
                     //certificate inside of table
 
-                    //*[@id="s_mbqBTWQAAAFKyVsIik_d_find"]
-
-                    //certbtn = wait.Until(drvr => drvr.FindElement(By.XPath("//*[@id='result - FvCbqBDaYAAAFErYZWba4i']/table/tbody/tr/td[1]/a")));
-                    //certbtn.Click();
+                    certbtn = wait.Until(drvr => drvr.FindElement(By.CssSelector("#result-FvCbqBDaYAAAFErYZWba4i > table > tbody > tr > td:nth-child(1) > a")));
+                    certbtn.Click();
 
                     break;
             }

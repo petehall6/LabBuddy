@@ -180,9 +180,11 @@ namespace AutomateCoA
             }
             catch (Exception Exception)
             {
+                int errorLength = 100;
+
                 var myError = Exception;
                 mydriver.Quit();
-                MessageBox.Show("Tell Pete this happened: " + myError.ToString());
+                MessageBox.Show("Tell Pete this happened: " + myError.ToString().Substring(0, errorLength));
             }
 
         }

@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FetchBtn1.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="ItemBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>210, 227</value>
@@ -151,9 +151,6 @@
   </data>
   <data name="ItemBox1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="ItemBox1.Text" xml:space="preserve">
-    <value>Item#</value>
   </data>
   <data name="&gt;&gt;ItemBox1.Name" xml:space="preserve">
     <value>ItemBox1</value>
@@ -165,19 +162,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ItemBox1.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="LotBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 267</value>
+    <value>210, 294</value>
   </data>
   <data name="LotBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 13</value>
+    <value>288, 20</value>
   </data>
   <data name="LotBox1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="LotBox1.Text" xml:space="preserve">
-    <value>Lot#</value>
   </data>
   <data name="&gt;&gt;LotBox1.Name" xml:space="preserve">
     <value>LotBox1</value>
@@ -189,7 +183,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LotBox1.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
+  </data>
+  <data name="VendorBox1.AutoCompleteCustomSource" xml:space="preserve">
+    <value>Fisher</value>
+  </data>
+  <data name="VendorBox1.AutoCompleteCustomSource1" xml:space="preserve">
+    <value>Sigma</value>
+  </data>
+  <data name="VendorBox1.AutoCompleteCustomSource2" xml:space="preserve">
+    <value>VWR</value>
+  </data>
+  <data name="VendorBox1.AutoCompleteCustomSource3" xml:space="preserve">
+    <value>Millipore</value>
+  </data>
+  <data name="VendorBox1.AutoCompleteCustomSource4" xml:space="preserve">
+    <value>BD</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="VendorBox1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -211,16 +220,13 @@
     <value>VWR</value>
   </data>
   <data name="VendorBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 302</value>
+    <value>210, 362</value>
   </data>
   <data name="VendorBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>288, 21</value>
   </data>
   <data name="VendorBox1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="VendorBox1.Text" xml:space="preserve">
-    <value>Vendor</value>
   </data>
   <data name="&gt;&gt;VendorBox1.Name" xml:space="preserve">
     <value>VendorBox1</value>
@@ -232,7 +238,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;VendorBox1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="clrCoABtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>733, 259</value>
@@ -256,19 +262,25 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;clrCoABtn.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
+  </data>
+  <data name="QRRFindBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="QRRFindBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 14.25pt, style=Bold</value>
   </data>
   <data name="QRRFindBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 132</value>
+    <value>261, 124</value>
   </data>
   <data name="QRRFindBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 23</value>
+    <value>197, 38</value>
   </data>
   <data name="QRRFindBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>0</value>
   </data>
   <data name="QRRFindBtn.Text" xml:space="preserve">
-    <value>Choose QRR</value>
+    <value>CHOOSE QRR</value>
   </data>
   <data name="&gt;&gt;QRRFindBtn.Name" xml:space="preserve">
     <value>QRRFindBtn</value>
@@ -280,16 +292,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;QRRFindBtn.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="QRRLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="QRRLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt</value>
+  </data>
   <data name="QRRLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 85</value>
+    <value>307, 85</value>
   </data>
   <data name="QRRLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 13</value>
+    <value>115, 15</value>
   </data>
   <data name="QRRLabel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -307,13 +322,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;QRRLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="CoALabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="CoALabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 188</value>
+    <value>307, 188</value>
   </data>
   <data name="CoALabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 13</value>
@@ -334,13 +349,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CoALabel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="ComboPDFSection.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="ComboPDFSection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 381</value>
+    <value>210, 412</value>
   </data>
   <data name="ComboPDFSection.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 13</value>
@@ -361,13 +376,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ComboPDFSection.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="QRRFileNameBx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>387, 410</value>
+    <value>387, 441</value>
   </data>
   <data name="QRRFileNameBx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 20</value>
+    <value>233, 20</value>
   </data>
   <data name="QRRFileNameBx.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -382,16 +397,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;QRRFileNameBx.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="QRRPDFBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 406</value>
+    <value>210, 437</value>
   </data>
   <data name="QRRPDFBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 23</value>
   </data>
   <data name="QRRPDFBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>6</value>
   </data>
   <data name="QRRPDFBtn.Text" xml:space="preserve">
     <value>Choose QRR PDF</value>
@@ -406,16 +421,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;QRRPDFBtn.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="CoAPDFBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 457</value>
+    <value>210, 488</value>
   </data>
   <data name="CoAPDFBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 23</value>
   </data>
   <data name="CoAPDFBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>7</value>
   </data>
   <data name="CoAPDFBtn.Text" xml:space="preserve">
     <value>Choose CoA PDF</value>
@@ -430,13 +445,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CoAPDFBtn.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="CoAFileNameBx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>387, 459</value>
+    <value>387, 490</value>
   </data>
   <data name="CoAFileNameBx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 20</value>
+    <value>233, 20</value>
   </data>
   <data name="CoAFileNameBx.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -451,16 +466,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CoAFileNameBx.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="SaveFinalPDFBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 591</value>
+    <value>341, 622</value>
   </data>
   <data name="SaveFinalPDFBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
   <data name="SaveFinalPDFBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>9</value>
   </data>
   <data name="SaveFinalPDFBtn.Text" xml:space="preserve">
     <value>Save Final PDF</value>
@@ -475,13 +490,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SaveFinalPDFBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="PDFNameLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="PDFNameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 515</value>
+    <value>207, 546</value>
   </data>
   <data name="PDFNameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 13</value>
@@ -502,16 +517,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PDFNameLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="FinalPDFBx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>210, 543</value>
+    <value>210, 574</value>
   </data>
   <data name="FinalPDFBx.Size" type="System.Drawing.Size, System.Drawing">
     <value>332, 20</value>
   </data>
   <data name="FinalPDFBx.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;FinalPDFBx.Name" xml:space="preserve">
     <value>FinalPDFBx</value>
@@ -523,22 +538,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FinalPDFBx.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>548, 188</value>
+    <value>210, 208</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 13</value>
+    <value>70, 13</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>VWR-53548-023, 18N17C8</value>
+    <value>Item Number:</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -550,6 +565,60 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 278</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Lot Number:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 346</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Vendor:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

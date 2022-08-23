@@ -46,6 +46,8 @@
             this.PDFNameLabel = new System.Windows.Forms.Label();
             this.FinalPDFBx = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // FetchBtn1
@@ -58,17 +60,27 @@
             // ItemBox1
             // 
             this.ItemBox1.AcceptsTab = true;
+            this.ItemBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             resources.ApplyResources(this.ItemBox1, "ItemBox1");
             this.ItemBox1.Name = "ItemBox1";
             // 
             // LotBox1
             // 
-            this.LotBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LotBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             resources.ApplyResources(this.LotBox1, "LotBox1");
             this.LotBox1.Name = "LotBox1";
             // 
             // VendorBox1
             // 
+            this.VendorBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            resources.GetString("VendorBox1.AutoCompleteCustomSource"),
+            resources.GetString("VendorBox1.AutoCompleteCustomSource1"),
+            resources.GetString("VendorBox1.AutoCompleteCustomSource2"),
+            resources.GetString("VendorBox1.AutoCompleteCustomSource3"),
+            resources.GetString("VendorBox1.AutoCompleteCustomSource4")});
+            this.VendorBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.VendorBox1.BackColor = System.Drawing.Color.Silver;
+            this.VendorBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.VendorBox1, "VendorBox1");
             this.VendorBox1.FormattingEnabled = true;
             this.VendorBox1.Items.AddRange(new object[] {
@@ -88,14 +100,21 @@
             // 
             // QRRFindBtn
             // 
+            this.QRRFindBtn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.QRRFindBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.QRRFindBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(123)))), ((int)(((byte)(101)))));
+            this.QRRFindBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(123)))), ((int)(((byte)(101)))));
             resources.ApplyResources(this.QRRFindBtn, "QRRFindBtn");
+            this.QRRFindBtn.ForeColor = System.Drawing.Color.Black;
             this.QRRFindBtn.Name = "QRRFindBtn";
-            this.QRRFindBtn.UseVisualStyleBackColor = true;
+            this.QRRFindBtn.UseVisualStyleBackColor = false;
             this.QRRFindBtn.Click += new System.EventHandler(this.QRRFindBtn_Click);
             // 
             // QRRLabel
             // 
             resources.ApplyResources(this.QRRLabel, "QRRLabel");
+            this.QRRLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.QRRLabel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.QRRLabel.Name = "QRRLabel";
             // 
             // CoALabel
@@ -112,6 +131,7 @@
             // 
             resources.ApplyResources(this.QRRFileNameBx, "QRRFileNameBx");
             this.QRRFileNameBx.Name = "QRRFileNameBx";
+            this.QRRFileNameBx.TabStop = false;
             // 
             // QRRPDFBtn
             // 
@@ -131,6 +151,7 @@
             // 
             resources.ApplyResources(this.CoAFileNameBx, "CoAFileNameBx");
             this.CoAFileNameBx.Name = "CoAFileNameBx";
+            this.CoAFileNameBx.TabStop = false;
             // 
             // SaveFinalPDFBtn
             // 
@@ -154,10 +175,23 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SaveFinalPDFBtn);
             this.Controls.Add(this.PDFNameLabel);
@@ -200,6 +234,8 @@
         private System.Windows.Forms.Label PDFNameLabel;
         private System.Windows.Forms.TextBox FinalPDFBx;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

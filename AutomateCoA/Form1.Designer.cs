@@ -52,9 +52,11 @@
             // 
             // FetchBtn1
             // 
+            this.FetchBtn1.BackColor = System.Drawing.Color.ForestGreen;
+            this.FetchBtn1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             resources.ApplyResources(this.FetchBtn1, "FetchBtn1");
             this.FetchBtn1.Name = "FetchBtn1";
-            this.FetchBtn1.UseVisualStyleBackColor = true;
+            this.FetchBtn1.UseVisualStyleBackColor = false;
             this.FetchBtn1.Click += new System.EventHandler(this.FetchBtn1_Click);
             // 
             // ItemBox1
@@ -102,7 +104,7 @@
             // 
             this.QRRFindBtn.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.QRRFindBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.QRRFindBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(123)))), ((int)(((byte)(101)))));
+            this.QRRFindBtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.AppWorkspace;
             this.QRRFindBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(123)))), ((int)(((byte)(101)))));
             resources.ApplyResources(this.QRRFindBtn, "QRRFindBtn");
             this.QRRFindBtn.ForeColor = System.Drawing.Color.Black;

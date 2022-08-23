@@ -178,10 +178,11 @@ namespace AutomateCoA
                 }
 
             }
-            catch (Exception)
+            catch (Exception Exception)
             {
+                var myError = Exception;
                 mydriver.Quit();
-                MessageBox.Show("There was an error try again");
+                MessageBox.Show("Tell Pete this happened: " + myError.ToString());
             }
 
         }

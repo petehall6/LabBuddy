@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="FetchBtn1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="FetchBtn1.Location" type="System.Drawing.Point, System.Drawing">
     <value>539, 259</value>
@@ -129,7 +133,7 @@
     <value>4</value>
   </data>
   <data name="FetchBtn1.Text" xml:space="preserve">
-    <value>Go Fetch</value>
+    <value>Fetch CoA</value>
   </data>
   <data name="&gt;&gt;FetchBtn1.Name" xml:space="preserve">
     <value>FetchBtn1</value>
@@ -200,7 +204,6 @@
   <data name="VendorBox1.AutoCompleteCustomSource4" xml:space="preserve">
     <value>BD</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="VendorBox1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -241,16 +244,16 @@
     <value>15</value>
   </data>
   <data name="clrCoABtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>733, 259</value>
+    <value>428, 619</value>
   </data>
   <data name="clrCoABtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 28</value>
+    <value>192, 28</value>
   </data>
   <data name="clrCoABtn.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="clrCoABtn.Text" xml:space="preserve">
-    <value>Clear</value>
+    <value>Clear Fields</value>
   </data>
   <data name="&gt;&gt;clrCoABtn.Name" xml:space="preserve">
     <value>clrCoABtn</value>
@@ -263,9 +266,6 @@
   </data>
   <data name="&gt;&gt;clrCoABtn.ZOrder" xml:space="preserve">
     <value>14</value>
-  </data>
-  <data name="QRRFindBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
   </data>
   <data name="QRRFindBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 14.25pt, style=Bold</value>
@@ -469,10 +469,10 @@
     <value>6</value>
   </data>
   <data name="SaveFinalPDFBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>341, 622</value>
+    <value>210, 624</value>
   </data>
   <data name="SaveFinalPDFBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>177, 23</value>
   </data>
   <data name="SaveFinalPDFBtn.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -655,7 +655,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Form1</value>
+    <value>Lab Buddy</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>

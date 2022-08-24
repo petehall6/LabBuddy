@@ -236,31 +236,42 @@ namespace AutomateCoA
         //merge, rename and save final PDF
         private void SaveFinalPDFBtn_Click(object sender, EventArgs e)
         {
-            //store paths in string array
-            string[] pdfPaths = { qrrPDFPath, coaPDFPath };
 
-            //load all pdfs into an PdfDocument obj and store all objs in PdfDocument array
-            PdfDocument[] pdfs = new PdfDocument[pdfPaths.Length];
 
-            for (int i=0; i< pdfPaths.Length; i++)
+            try
             {
-                pdfs[i] = new PdfDocument(pdfPaths[i]);
+                //store paths in string array
+                string[] pdfPaths = { qrrPDFPath, coaPDFPath };
+
+                //load all pdfs into an PdfDocument obj and store all objs in PdfDocument array
+                PdfDocument[] pdfs = new PdfDocument[pdfPaths.Length];
+
+                for (int i = 0; i < pdfPaths.Length; i++)
+                {
+                    pdfs[i] = new PdfDocument(pdfPaths[i]);
+                }
+
+                PdfDocument finalPdf = new PdfDocument();
+
+                //just first page of QRR and all pages of CoA
+                finalPdf.InsertPage(pdfs[0], 0);
+                finalPdf.AppendPage(pdfs[1]);
+
+                string finalPdfPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+
+
+                string finalPdfName = FinalPDFBx.Text;
+
+                finalPdf.SaveToFile(finalPdfPath + "\\" + finalPdfName + ".pdf");
+                Process.Start(finalPdfPath + "\\" + finalPdfName + ".pdf");
             }
 
-            PdfDocument finalPdf = new PdfDocument();
-
-            //just first page of QRR and all pages of CoA
-            finalPdf.InsertPage(pdfs[0], 0);
-            finalPdf.AppendPage(pdfs[1]);
-
-            string finalPdfPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
+            catch (Exception)
+            {
+                MessageBox.Show("Please select both .pdfs");
+            }
             
-
-            string finalPdfName = FinalPDFBx.Text;
-
-            finalPdf.SaveToFile(finalPdfPath+"\\"+ finalPdfName + ".pdf");
-            Process.Start(finalPdfPath + "\\" + finalPdfName +".pdf");
 
 
 

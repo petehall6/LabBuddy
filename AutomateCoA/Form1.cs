@@ -16,6 +16,18 @@ using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using Word = Microsoft.Office.Interop.Word;
 using Spire.Pdf;
+using BarcodeLib;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+
+/*TODO
+ * redo layout
+ * pick a color pallete 
+ * design
+ * break out function from button presses
+ * make new directory with QRR and labels .docs.
+ */
+
 
 
 
@@ -28,11 +40,26 @@ namespace AutomateCoA
             InitializeComponent();
         }
 
-        //open and edit QRR
-        //TODO make new directory with QRR and labels .docs.
-        private void QRRFindBtn_Click(object sender, EventArgs e)
-        {
 
+        Font myFont = new Font("Arial", 20, FontStyle.Bold);
+
+        //cant think of a better way to scope
+        private string qrrPDFPath;
+        private string coaPDFPath;
+
+        //makes barcode generator work somehow.  DONT TOUCH
+        public bool ThumbnailCallback()
+        {
+            return false;
+        }
+
+
+
+        //QRR/COA Tab///////////////////////////////////////////////////////////////////////////////////////////////
+
+        //open and edit QRR
+        private void FindQRR()
+        {
             OpenFileDialog _fileDialog = new OpenFileDialog();
             _fileDialog.InitialDirectory = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Quarantine Release\\Digital QRR - Test Set";
 
@@ -59,15 +86,13 @@ namespace AutomateCoA
             }
         }
 
-
         //find and save CoA
-        //TODO add other vendors
-        private void FetchBtn1_Click(object sender, EventArgs e)
+        private void FindCoA()
         {
             //iniate web browser with console hidden.  Browser will close when driver is exited.
             ChromeOptions options = new ChromeOptions();
             options.LeaveBrowserRunning = false;
-            
+
             new DriverManager().SetUpDriver(new ChromeConfig());
             ChromeDriverService service = ChromeDriverService.CreateDefaultService();
             service.HideCommandPromptWindow = true;
@@ -186,27 +211,10 @@ namespace AutomateCoA
                 mydriver.Quit();
                 MessageBox.Show("Tell Pete this happened: " + myError.ToString().Substring(0, errorLength));
             }
-
         }
 
-        //clear CoA Buttons
-        private void clrCoABtn_Click(object sender, EventArgs e)
-        {
-            ItemBox1.Clear();
-            LotBox1.Clear();
-            VendorBox1.SelectedIndex = -1;
-            QRRFileNameBx.Clear();
-            CoAFileNameBx.Clear();
-            FinalPDFBx.Clear();
-
-        }
-
-
-        //cant think of a better way to scope
-        private string qrrPDFPath;
-        private string coaPDFPath;
-        //merge and save QRR and CoA PDF
-        private void QRRPDFBtn_Click(object sender, EventArgs e)
+        //find QRR PDF
+        private void QRRPDF()
         {
             OpenFileDialog _fileDialog = new OpenFileDialog();
             _fileDialog.ShowDialog();
@@ -217,11 +225,10 @@ namespace AutomateCoA
             QRRFileNameBx.Text = qrrPDFPath;
             QRRFileNameBx.SelectionStart = QRRFileNameBx.Text.Length;
             QRRFileNameBx.SelectionLength = 0;
-
-            
         }
 
-        private void CoAPDFBtn_Click(object sender, EventArgs e)
+        //find CoAPDF
+        private void CoAPDF()
         {
             OpenFileDialog _fileDialog = new OpenFileDialog();
             _fileDialog.ShowDialog();
@@ -232,12 +239,10 @@ namespace AutomateCoA
             CoAFileNameBx.SelectionStart = CoAFileNameBx.Text.Length;
             CoAFileNameBx.SelectionLength = 0;
         }
-
-        //merge, rename and save final PDF
-        private void SaveFinalPDFBtn_Click(object sender, EventArgs e)
+        
+        //combine QRR and COA then save to desktop
+        private void SaveFinalPDF()
         {
-
-
             try
             {
                 //store paths in string array
@@ -257,26 +262,172 @@ namespace AutomateCoA
                 finalPdf.InsertPage(pdfs[0], 0);
                 finalPdf.AppendPage(pdfs[1]);
 
-                string finalPdfPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-
-
+                string finalPdfPathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string finalPdfPathFiixFolder = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Fiix Scanned Documents";
                 string finalPdfName = FinalPDFBx.Text;
 
-                finalPdf.SaveToFile(finalPdfPath + "\\" + finalPdfName + ".pdf");
-                Process.Start(finalPdfPath + "\\" + finalPdfName + ".pdf");
+                finalPdf.SaveToFile(finalPdfPathFiixFolder + "\\" + finalPdfName + ".pdf");
+                finalPdf.SaveToFile(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
+                Process.Start(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
             }
 
             catch (Exception)
             {
                 MessageBox.Show("Please select both .pdfs");
             }
-            
-
-
-
-
 
         }
+
+        //clear controls
+        void ClearControls()
+        {
+            foreach (Control con in this.Controls)
+            {
+                if(con is System.Windows.Forms.TextBox)
+                {
+                    ((System.Windows.Forms.TextBox)con).Clear();
+                }
+
+                if(con is System.Windows.Forms.ComboBox)
+                {
+                    ((System.Windows.Forms.ComboBox)con).SelectedIndex = -1;
+                }
+
+                if(con is System.Windows.Forms.PictureBox)
+                {
+                    ((System.Windows.Forms.PictureBox)con).Image = null;
+                }
+            }
+
+        }
+
+
+
+
+        //interface events
+        private void QRRFindBtn_Click_1(object sender, EventArgs e)
+        {
+            FindQRR();
+        }
+  
+        private void FetchBtn1_Click_1(object sender, EventArgs e)
+        {
+            FindCoA();
+
+        }
+
+        private void QRRPDFBtn_Click(object sender, EventArgs e)
+        {
+            QRRPDF();
+        }
+
+        private void CoAPDFBtn_Click(object sender, EventArgs e)
+        {
+            CoAPDF();
+        }
+
+        private void SaveFinalPDFBtn_Click(object sender, EventArgs e)
+        {
+            SaveFinalPDF();
+        }
+
+        private void clrCoABtn_Click(object sender, EventArgs e)
+        {
+            ClearControls();
+        }
+
+      
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+
+
+        //Barcode Tab
+
+        //makes barcodes
+        private void GenerateCodes()
+        {
+
+
+            //link textbox control to picturebox controls...felt good
+            Dictionary<Control, Control> barDict = new Dictionary<Control, Control>();
+
+            barDict.Add(lot1, lot1code);
+            barDict.Add(bud1, bud1code);
+            barDict.Add(lot2, lot2code);
+            barDict.Add(bud2, bud2code);
+            barDict.Add(lot3, lot3code);
+            barDict.Add(bud3, bud3code);
+            barDict.Add(lot4, lot4code);
+            barDict.Add(bud4, bud4code);
+            barDict.Add(lot5, lot5code);
+            barDict.Add(bud5, bud5code);
+            barDict.Add(lot6, lot6code);
+            barDict.Add(bud6, bud6code);
+
+
+            foreach (var barText in barDict.Keys)
+            {
+                if (barText.Text != "")
+                {
+
+                    BarcodeLib.Barcode barcode = new BarcodeLib.Barcode()
+                    {
+                        IncludeLabel = true,
+                        LabelFont = myFont,
+                        Alignment = AlignmentPositions.CENTER,
+                        Width = 280,
+                        Height = 70,
+                        //RotateFlipType = RotateFlipType.RotateNoneFlipNone,
+                        BackColor = Color.White,
+                        ForeColor = Color.Black,
+                    };
+
+                    Image img = barcode.Encode(TYPE.CODE128B, barText.Text);
+                    Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
+
+                    PictureBox pb = barDict[barText] as PictureBox;
+                    pb.Image = img;
+                }
+            }
+        }
+        
+
+        //interface events
+        private void MakeBarCodeBtn_Click_1(object sender, EventArgs e)
+        {
+            GenerateCodes();
+        }
+      
+        private void clearButton_Click_1(object sender, EventArgs e)
+        {
+            ClearControls();
+        }
+
+        //right click menu
+        private void copyToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Clipboard.Clear();
+
+            ToolStripItem menuItem = sender as ToolStripItem;
+
+            if (menuItem != null)
+            {
+
+
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    PictureBox pb = sourceControl as PictureBox;
+                    Image img = pb.Image;
+                    if (img != null)
+                    {
+                        Clipboard.SetImage(img);
+                    }
+                }
+            }
+        }
+
     }
 }

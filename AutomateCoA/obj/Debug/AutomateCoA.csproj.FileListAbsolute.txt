@@ -81,3 +81,15 @@ C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\obj\Debug\dje\A
 C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\obj\Debug\AutomateCoA.csproj.CopyComplete
 C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\obj\Debug\AutomateCoA.exe
 C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\obj\Debug\AutomateCoA.pdb
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\BarcodeStandard.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.Drawing.Common.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.Text.Json.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.ValueTuple.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.Text.Json.xml
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Debug\System.ValueTuple.xml

@@ -24,7 +24,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
  * redo layout
  * pick a color pallete 
  * design
- * break out function from button presses
  * make new directory with QRR and labels .docs.
  */
 
@@ -239,7 +238,7 @@ namespace AutomateCoA
             CoAFileNameBx.SelectionStart = CoAFileNameBx.Text.Length;
             CoAFileNameBx.SelectionLength = 0;
         }
-        
+
         //combine QRR and COA then save to desktop
         private void SaveFinalPDF()
         {
@@ -281,35 +280,34 @@ namespace AutomateCoA
         //clear controls
         void ClearControls()
         {
-            foreach (Control con in this.Controls)
+            foreach (Control control in PTSTAB.SelectedTab.Controls)
             {
-                if(con is System.Windows.Forms.TextBox)
+                if (control is System.Windows.Forms.TextBox)
                 {
-                    ((System.Windows.Forms.TextBox)con).Clear();
+                    //cast to textbox to use clear method
+                    ((System.Windows.Forms.TextBox)control).Clear();
+
                 }
 
-                if(con is System.Windows.Forms.ComboBox)
+                if (control is System.Windows.Forms.ComboBox)
                 {
-                    ((System.Windows.Forms.ComboBox)con).SelectedIndex = -1;
+                    ((System.Windows.Forms.ComboBox)control).SelectedIndex = -1;
                 }
 
-                if(con is System.Windows.Forms.PictureBox)
+                if (control is PictureBox)
                 {
-                    ((System.Windows.Forms.PictureBox)con).Image = null;
+                    ((PictureBox)control).Image = null;
                 }
             }
 
         }
-
-
-
 
         //interface events
         private void QRRFindBtn_Click_1(object sender, EventArgs e)
         {
             FindQRR();
         }
-  
+
         private void FetchBtn1_Click_1(object sender, EventArgs e)
         {
             FindCoA();
@@ -336,9 +334,9 @@ namespace AutomateCoA
             ClearControls();
         }
 
-      
+
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   
+
 
 
         //Barcode Tab
@@ -390,14 +388,14 @@ namespace AutomateCoA
                 }
             }
         }
-        
+
 
         //interface events
         private void MakeBarCodeBtn_Click_1(object sender, EventArgs e)
         {
             GenerateCodes();
         }
-      
+
         private void clearButton_Click_1(object sender, EventArgs e)
         {
             ClearControls();
@@ -429,5 +427,59 @@ namespace AutomateCoA
             }
         }
 
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+        //PTS Tab
+        private void GeneratePTSCodes()
+        {
+
+            Dictionary<Control, Control> ptsDict = new Dictionary<Control, Control>();
+
+            ptsDict.Add(PTS_initial, PTS_initialCode);
+            ptsDict.Add(PTS_lot, PTS_lotCode);
+            ptsDict.Add(PTS_sampleName, PTS_sampleNameCode);
+            ptsDict.Add(PTS_sampleLot, PTS_sampleLotCode);
+            ptsDict.Add(PTS_dil, PTS_dilCode);
+
+            foreach (var barText in ptsDict.Keys)
+            {
+                if (barText.Text != "")
+                {
+
+                    BarcodeLib.Barcode barcode = new BarcodeLib.Barcode()
+                    {
+                        IncludeLabel = true,
+                        LabelFont = myFont,
+                        Alignment = AlignmentPositions.CENTER,
+                        Width = 280,
+                        Height = 70,
+                        //RotateFlipType = RotateFlipType.RotateNoneFlipNone,
+                        BackColor = Color.White,
+                        ForeColor = Color.Black,
+                    };
+
+                    Image img = barcode.Encode(TYPE.CODE128B, barText.Text);
+                    Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
+
+                    PictureBox pb = ptsDict[barText] as PictureBox;
+                    pb.Image = img;
+                }
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GeneratePTSCodes();
+        }
+
+        private void ClearPTS_Click(object sender, EventArgs e)
+        {
+            ClearControls();
+        }
     }
 }

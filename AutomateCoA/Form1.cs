@@ -17,7 +17,9 @@ using WebDriverManager.DriverConfigs.Impl;
 using Word = Microsoft.Office.Interop.Word;
 using Spire.Pdf;
 using BarcodeLib;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.CompilerServices;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 /*TODO
@@ -25,6 +27,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
  * pick a color pallete 
  * design
  * make new directory with QRR and labels .docs.
+ * fix exception handling
+ * 
  */
 
 
@@ -37,6 +41,8 @@ namespace AutomateCoA
         public Form1()
         {
             InitializeComponent();
+
+            PTSTAB.DrawItem += new DrawItemEventHandler(PTSTAB_DrawItem);
         }
 
 
@@ -45,6 +51,7 @@ namespace AutomateCoA
         //cant think of a better way to scope
         private string qrrPDFPath;
         private string coaPDFPath;
+        
 
         //makes barcode generator work somehow.  DONT TOUCH
         public bool ThumbnailCallback()
@@ -52,7 +59,50 @@ namespace AutomateCoA
             return false;
         }
 
+        private void PTSTAB_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
+        {
 
+            //System.Drawing
+
+
+            Graphics g = e.Graphics;
+            Brush  _textBrush;
+            Brush _activetabBrush;
+            Brush _tabBrush;                   
+;
+            //Get the item from the collection
+            TabPage _tabPage = PTSTAB.TabPages[e.Index];
+
+            //Get the real bounds for the tab rectangle
+            // Get the real bounds for the tab rectangle.
+            Rectangle _tabBounds = PTSTAB.GetTabRect(e.Index);
+
+            if (e.State == DrawItemState.Selected)
+            {
+
+                // Draw a different background color, and don't paint a focus rectangle.
+                _textBrush = new SolidBrush(Color.FromArgb(245,245,245));
+                _activetabBrush = new SolidBrush(Color.FromArgb(222, 143, 110));
+                g.FillRectangle(_activetabBrush, e.Bounds);
+            }
+            
+            else
+            {
+                _tabBrush = new SolidBrush(Color.FromArgb(55,73,94));
+                _textBrush = new SolidBrush(Color.FromArgb(245, 245, 245));
+                g.FillRectangle(_tabBrush, e.Bounds);
+            }
+            
+
+            // Use our own font.
+            Font _tabFont = new Font("Arial", 10.0f, FontStyle.Bold, GraphicsUnit.Pixel);
+
+            // Draw string. Center the text.
+            StringFormat _stringFlags = new StringFormat();
+            _stringFlags.Alignment = StringAlignment.Center;
+            _stringFlags.LineAlignment = StringAlignment.Center;
+            g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+        }
 
         //QRR/COA Tab///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -212,11 +262,16 @@ namespace AutomateCoA
             }
         }
 
+
         //find QRR PDF
         private void QRRPDF()
         {
             OpenFileDialog _fileDialog = new OpenFileDialog();
+            _fileDialog.Filter = "|*.pdf";
+            _fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             _fileDialog.ShowDialog();
+            
+
 
             qrrPDFPath = _fileDialog.FileName.ToString();
 
@@ -230,7 +285,11 @@ namespace AutomateCoA
         private void CoAPDF()
         {
             OpenFileDialog _fileDialog = new OpenFileDialog();
+            _fileDialog.Filter = "|*.pdf";
+            _fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             _fileDialog.ShowDialog();
+          
+            
 
             coaPDFPath = _fileDialog.FileName.ToString();
 
@@ -306,6 +365,7 @@ namespace AutomateCoA
         private void QRRFindBtn_Click_1(object sender, EventArgs e)
         {
             FindQRR();
+
         }
 
         private void FetchBtn1_Click_1(object sender, EventArgs e)
@@ -334,9 +394,260 @@ namespace AutomateCoA
             ClearControls();
         }
 
+        
+        
+        private void QRRFindBtn_Enter(object sender, EventArgs e)
+        {
+            int width = QRRFindBtn.Width;
+            int height = QRRFindBtn.Height;
+            int scaleUp = 10;
+
+            QRRFindBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            QRRFindBtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void QRRFindBtn_Leave(object sender, EventArgs e)
+        {
+            int width = QRRFindBtn.Width;
+            int height = QRRFindBtn.Height;
+            int scaleDown = -10;
+
+            QRRFindBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            QRRFindBtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+        private void QRRFindMouse_Enter(object sender, EventArgs e)
+        {
+            int width = QRRFindBtn.Width;
+            int height = QRRFindBtn.Height;
+            int scaleUp = 10;
+
+            QRRFindBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            QRRFindBtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void QRRFindMouse_Leave(object sender, EventArgs e)
+        {
+            int width = QRRFindBtn.Width;
+            int height = QRRFindBtn.Height;
+            int scaleDown = -10;
+
+            QRRFindBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            QRRFindBtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+        private void FetchBtn1_MouseEnter(object sender, EventArgs e)
+        {
+            int width = FetchBtn1.Width;
+            int height = FetchBtn1.Height;
+            int scaleUp = 10;
+
+            FetchBtn1.Size = new Size(width + scaleUp, height + scaleUp);
+            FetchBtn1.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void FetchBtn1_MouseLeave(object sender, EventArgs e)
+        {
+            int width = FetchBtn1.Width;
+            int height = FetchBtn1.Height;
+            int scaleDown = -10;
+
+            FetchBtn1.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            FetchBtn1.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+        private void FetchBtnBtn_Enter(object sender, EventArgs e)
+        {
+            int width = FetchBtn1.Width;
+            int height = FetchBtn1.Height;
+            int scaleUp = 10;
+
+            FetchBtn1.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            FetchBtn1.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void FetchBtn_Leave(object sender, EventArgs e)
+        {
+            int width = FetchBtn1.Width;
+            int height = FetchBtn1.Height;
+            int scaleDown = -10;
+
+            FetchBtn1.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            FetchBtn1.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+        private void CoAPDFBtn_MouseEnter(object sender, EventArgs e)
+        {
+            int width = CoAPDFBtn.Width;
+            int height = CoAPDFBtn.Height;
+            int scaleUp = 10;
+
+            CoAPDFBtn.Size = new Size(width + scaleUp, height + scaleUp);
+            CoAPDFBtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void CoAPDFBtn_MouseLeave(object sender, EventArgs e)
+        {
+            int width = CoAPDFBtn.Width;
+            int height = CoAPDFBtn.Height;
+            int scaleDown = -10;
+
+            CoAPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            CoAPDFBtn.Font = new Font("", 11, FontStyle.Regular);
+
+        }
+
+        private void CoAPDFBtn_Enter(object sender, EventArgs e)
+        {
+            int width = CoAPDFBtn.Width;
+            int height = CoAPDFBtn.Height;
+            int scaleUp = 10;
+
+            CoAPDFBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            CoAPDFBtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void CoAPDFBtn_Leave(object sender, EventArgs e)
+        {
+            int width = CoAPDFBtn.Width;
+            int height = CoAPDFBtn.Height;
+            int scaleDown = -10;
+
+            CoAPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            CoAPDFBtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+
+
+
+
+        private void SaveFinalPDFBtn_MouseEnter(object sender, EventArgs e)
+        {
+            int width = SaveFinalPDFBtn.Width;
+            int height = SaveFinalPDFBtn.Height;
+            int scaleUp = 10;
+
+            SaveFinalPDFBtn.Size = new Size(width + scaleUp, height + scaleUp);
+            SaveFinalPDFBtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void SaveFinalPDFBtn_MouseLeave(object sender, EventArgs e)
+        {
+            int width = SaveFinalPDFBtn.Width;
+            int height = SaveFinalPDFBtn.Height;
+            int scaleDown = -10;
+
+            SaveFinalPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            SaveFinalPDFBtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+        private void SaveFinalPDFBtn_Enter(object sender, EventArgs e)
+        {
+            int width = SaveFinalPDFBtn.Width;
+            int height = SaveFinalPDFBtn.Height;
+            int scaleUp = 10;
+
+            SaveFinalPDFBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            SaveFinalPDFBtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void SaveFinalPDFBtn_Leave(object sender, EventArgs e)
+        {
+            int width = SaveFinalPDFBtn.Width;
+            int height = SaveFinalPDFBtn.Height;
+            int scaleDown = -10;
+
+            SaveFinalPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            SaveFinalPDFBtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+
+
+
+        private void clrCoABtn_MouseEnter(object sender, EventArgs e)
+        {
+            int width = clrCoABtn.Width;
+            int height = clrCoABtn.Height;
+            int scaleUp = 10;
+
+            clrCoABtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            clrCoABtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void clrCoABtn_MouseLeave(object sender, EventArgs e)
+        {
+            int width = clrCoABtn.Width;
+            int height = clrCoABtn.Height;
+            int scaleDown = -10;
+
+            clrCoABtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            clrCoABtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+        private void clrCoABtn_Enter(object sender, EventArgs e)
+        {
+            int width = clrCoABtn.Width;
+            int height = clrCoABtn.Height;
+            int scaleUp = 10;
+
+            clrCoABtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            clrCoABtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void clrCoABtn_Leave(object sender, EventArgs e)
+        {
+            int width = clrCoABtn.Width;
+            int height = clrCoABtn.Height;
+            int scaleDown = -10;
+
+            clrCoABtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            clrCoABtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+
+
+        private void QRRPDFBtn_MouseEnter(object sender, EventArgs e)
+        {
+            int width = QRRPDFBtn.Width;
+            int height = QRRPDFBtn.Height;
+            int scaleUp = 10;
+
+            QRRPDFBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            QRRPDFBtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void QRRPDFBtn_MouseLeave(object sender, EventArgs e)
+        {
+            int width = QRRPDFBtn.Width;
+            int height = QRRPDFBtn.Height;
+            int scaleDown = -10;
+
+            QRRPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            QRRPDFBtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
+        private void QRRPDFBtn_Enter(object sender, EventArgs e)
+        {
+            int width = QRRPDFBtn.Width;
+            int height = QRRPDFBtn.Height;
+            int scaleUp = 10;
+
+            QRRPDFBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            QRRPDFBtn.Font = new Font("", 13, FontStyle.Bold);
+        }
+
+        private void QRRPDFBtn_Leave(object sender, EventArgs e)
+        {
+            int width = QRRPDFBtn.Width;
+            int height = QRRPDFBtn.Height;
+            int scaleDown = -10;
+
+            QRRPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            QRRPDFBtn.Font = new Font("", 11, FontStyle.Regular);
+        }
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
         //Barcode Tab
@@ -428,7 +739,6 @@ namespace AutomateCoA
         }
 
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -481,5 +791,6 @@ namespace AutomateCoA
         {
             ClearControls();
         }
+  
     }
 }

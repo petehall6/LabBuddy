@@ -1,4 +1,6 @@
-﻿namespace AutomateCoA
+﻿using System.Runtime.CompilerServices;
+
+namespace AutomateCoA
 {
     partial class Form1
     {
@@ -42,9 +44,6 @@
             this.CoAPDFBtn = new System.Windows.Forms.Button();
             this.QRRPDFBtn = new System.Windows.Forms.Button();
             this.QRRFileNameBx = new System.Windows.Forms.TextBox();
-            this.ComboPDFSection = new System.Windows.Forms.Label();
-            this.CoALabel = new System.Windows.Forms.Label();
-            this.QRRLabel = new System.Windows.Forms.Label();
             this.QRRFindBtn = new System.Windows.Forms.Button();
             this.clrCoABtn = new System.Windows.Forms.Button();
             this.VendorBox1 = new System.Windows.Forms.ComboBox();
@@ -124,15 +123,18 @@
             // 
             // PTSTAB
             // 
+            resources.ApplyResources(this.PTSTAB, "PTSTAB");
             this.PTSTAB.Controls.Add(this.tabPage1);
             this.PTSTAB.Controls.Add(this.tabPage2);
             this.PTSTAB.Controls.Add(this.tabPage3);
-            resources.ApplyResources(this.PTSTAB, "PTSTAB");
+            this.PTSTAB.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.PTSTAB.Multiline = true;
             this.PTSTAB.Name = "PTSTAB";
             this.PTSTAB.SelectedIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
@@ -143,9 +145,6 @@
             this.tabPage1.Controls.Add(this.CoAPDFBtn);
             this.tabPage1.Controls.Add(this.QRRPDFBtn);
             this.tabPage1.Controls.Add(this.QRRFileNameBx);
-            this.tabPage1.Controls.Add(this.ComboPDFSection);
-            this.tabPage1.Controls.Add(this.CoALabel);
-            this.tabPage1.Controls.Add(this.QRRLabel);
             this.tabPage1.Controls.Add(this.QRRFindBtn);
             this.tabPage1.Controls.Add(this.clrCoABtn);
             this.tabPage1.Controls.Add(this.VendorBox1);
@@ -154,37 +153,45 @@
             this.tabPage1.Controls.Add(this.FetchBtn1);
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Name = "label3";
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Name = "label1";
             // 
             // SaveFinalPDFBtn
             // 
             resources.ApplyResources(this.SaveFinalPDFBtn, "SaveFinalPDFBtn");
-            this.SaveFinalPDFBtn.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.SaveFinalPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.SaveFinalPDFBtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.SaveFinalPDFBtn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SaveFinalPDFBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.SaveFinalPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.SaveFinalPDFBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.SaveFinalPDFBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.SaveFinalPDFBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.SaveFinalPDFBtn.Name = "SaveFinalPDFBtn";
             this.SaveFinalPDFBtn.UseVisualStyleBackColor = false;
             this.SaveFinalPDFBtn.Click += new System.EventHandler(this.SaveFinalPDFBtn_Click);
+            this.SaveFinalPDFBtn.Enter += new System.EventHandler(this.SaveFinalPDFBtn_Enter);
+            this.SaveFinalPDFBtn.Leave += new System.EventHandler(this.SaveFinalPDFBtn_Leave);
+            this.SaveFinalPDFBtn.MouseEnter += new System.EventHandler(this.SaveFinalPDFBtn_MouseEnter);
+            this.SaveFinalPDFBtn.MouseLeave += new System.EventHandler(this.SaveFinalPDFBtn_MouseLeave);
             // 
             // PDFNameLabel
             // 
             resources.ApplyResources(this.PDFNameLabel, "PDFNameLabel");
+            this.PDFNameLabel.ForeColor = System.Drawing.Color.White;
             this.PDFNameLabel.Name = "PDFNameLabel";
             // 
             // FinalPDFBx
@@ -194,29 +201,40 @@
             // 
             // CoAFileNameBx
             // 
+            this.CoAFileNameBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             resources.ApplyResources(this.CoAFileNameBx, "CoAFileNameBx");
             this.CoAFileNameBx.Name = "CoAFileNameBx";
             this.CoAFileNameBx.TabStop = false;
             // 
             // CoAPDFBtn
             // 
-            this.CoAPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.CoAPDFBtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.CoAPDFBtn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.CoAPDFBtn, "CoAPDFBtn");
+            this.CoAPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.CoAPDFBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.CoAPDFBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.CoAPDFBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.CoAPDFBtn.Name = "CoAPDFBtn";
             this.CoAPDFBtn.UseVisualStyleBackColor = true;
             this.CoAPDFBtn.Click += new System.EventHandler(this.CoAPDFBtn_Click);
+            this.CoAPDFBtn.Enter += new System.EventHandler(this.CoAPDFBtn_Enter);
+            this.CoAPDFBtn.Leave += new System.EventHandler(this.CoAPDFBtn_Leave);
+            this.CoAPDFBtn.MouseEnter += new System.EventHandler(this.CoAPDFBtn_MouseEnter);
+            this.CoAPDFBtn.MouseLeave += new System.EventHandler(this.CoAPDFBtn_Leave);
             // 
             // QRRPDFBtn
             // 
-            this.QRRPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.QRRPDFBtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.QRRPDFBtn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.QRRPDFBtn, "QRRPDFBtn");
+            this.QRRPDFBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.QRRPDFBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.QRRPDFBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.QRRPDFBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.QRRPDFBtn.Name = "QRRPDFBtn";
             this.QRRPDFBtn.UseVisualStyleBackColor = true;
             this.QRRPDFBtn.Click += new System.EventHandler(this.QRRPDFBtn_Click);
+            this.QRRPDFBtn.Enter += new System.EventHandler(this.QRRPDFBtn_Enter);
+            this.QRRPDFBtn.Leave += new System.EventHandler(this.QRRPDFBtn_Leave);
+            this.QRRPDFBtn.MouseEnter += new System.EventHandler(this.QRRPDFBtn_MouseEnter);
+            this.QRRPDFBtn.MouseLeave += new System.EventHandler(this.QRRPDFBtn_MouseLeave);
             // 
             // QRRFileNameBx
             // 
@@ -224,45 +242,38 @@
             this.QRRFileNameBx.Name = "QRRFileNameBx";
             this.QRRFileNameBx.TabStop = false;
             // 
-            // ComboPDFSection
-            // 
-            resources.ApplyResources(this.ComboPDFSection, "ComboPDFSection");
-            this.ComboPDFSection.Name = "ComboPDFSection";
-            // 
-            // CoALabel
-            // 
-            resources.ApplyResources(this.CoALabel, "CoALabel");
-            this.CoALabel.Name = "CoALabel";
-            // 
-            // QRRLabel
-            // 
-            resources.ApplyResources(this.QRRLabel, "QRRLabel");
-            this.QRRLabel.BackColor = System.Drawing.Color.Transparent;
-            this.QRRLabel.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.QRRLabel.Name = "QRRLabel";
-            // 
             // QRRFindBtn
             // 
             resources.ApplyResources(this.QRRFindBtn, "QRRFindBtn");
-            this.QRRFindBtn.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.QRRFindBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.QRRFindBtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.QRRFindBtn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.QRRFindBtn.ForeColor = System.Drawing.Color.Black;
+            this.QRRFindBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.QRRFindBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.QRRFindBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.QRRFindBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.QRRFindBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.QRRFindBtn.Name = "QRRFindBtn";
             this.QRRFindBtn.UseVisualStyleBackColor = false;
             this.QRRFindBtn.Click += new System.EventHandler(this.QRRFindBtn_Click_1);
+            this.QRRFindBtn.Enter += new System.EventHandler(this.QRRFindBtn_Enter);
+            this.QRRFindBtn.Leave += new System.EventHandler(this.QRRFindBtn_Leave);
+            this.QRRFindBtn.MouseEnter += new System.EventHandler(this.QRRFindMouse_Enter);
+            this.QRRFindBtn.MouseLeave += new System.EventHandler(this.QRRFindMouse_Leave);
             // 
             // clrCoABtn
             // 
             resources.ApplyResources(this.clrCoABtn, "clrCoABtn");
-            this.clrCoABtn.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.clrCoABtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.clrCoABtn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.clrCoABtn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.clrCoABtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.clrCoABtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.clrCoABtn.FlatAppearance.BorderSize = 0;
+            this.clrCoABtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.clrCoABtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.clrCoABtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
             this.clrCoABtn.Name = "clrCoABtn";
             this.clrCoABtn.UseVisualStyleBackColor = false;
             this.clrCoABtn.Click += new System.EventHandler(this.clrCoABtn_Click);
+            this.clrCoABtn.Enter += new System.EventHandler(this.clrCoABtn_Enter);
+            this.clrCoABtn.Leave += new System.EventHandler(this.clrCoABtn_Leave);
+            this.clrCoABtn.MouseEnter += new System.EventHandler(this.clrCoABtn_MouseEnter);
+            this.clrCoABtn.MouseLeave += new System.EventHandler(this.clrCoABtn_MouseLeave);
             // 
             // VendorBox1
             // 
@@ -294,6 +305,7 @@
             // ItemBox1
             // 
             this.ItemBox1.AcceptsTab = true;
+            this.ItemBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.ItemBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             resources.ApplyResources(this.ItemBox1, "ItemBox1");
             this.ItemBox1.Name = "ItemBox1";
@@ -301,16 +313,22 @@
             // FetchBtn1
             // 
             resources.ApplyResources(this.FetchBtn1, "FetchBtn1");
-            this.FetchBtn1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.FetchBtn1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.FetchBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.FetchBtn1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.FetchBtn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.FetchBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.FetchBtn1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.FetchBtn1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.FetchBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.FetchBtn1.Name = "FetchBtn1";
             this.FetchBtn1.UseVisualStyleBackColor = false;
             this.FetchBtn1.Click += new System.EventHandler(this.FetchBtn1_Click_1);
+            this.FetchBtn1.Enter += new System.EventHandler(this.FetchBtnBtn_Enter);
+            this.FetchBtn1.Leave += new System.EventHandler(this.FetchBtn_Leave);
+            this.FetchBtn1.MouseEnter += new System.EventHandler(this.FetchBtn1_MouseEnter);
+            this.FetchBtn1.MouseLeave += new System.EventHandler(this.FetchBtn1_MouseLeave);
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tabPage2.Controls.Add(this.bud6code);
             this.tabPage2.Controls.Add(this.lot6code);
             this.tabPage2.Controls.Add(this.bud5code);
@@ -339,7 +357,6 @@
             this.tabPage2.Controls.Add(this.lot1);
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // bud6code
             // 
@@ -487,6 +504,8 @@
             // clearButton
             // 
             resources.ApplyResources(this.clearButton, "clearButton");
+            this.clearButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
             this.clearButton.Name = "clearButton";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click_1);
@@ -494,6 +513,8 @@
             // MakeBarCodeBtn
             // 
             resources.ApplyResources(this.MakeBarCodeBtn, "MakeBarCodeBtn");
+            this.MakeBarCodeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.MakeBarCodeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.MakeBarCodeBtn.Name = "MakeBarCodeBtn";
             this.MakeBarCodeBtn.UseVisualStyleBackColor = true;
             this.MakeBarCodeBtn.Click += new System.EventHandler(this.MakeBarCodeBtn_Click_1);
@@ -526,6 +547,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tabPage3.Controls.Add(this.ClearPTS);
             this.tabPage3.Controls.Add(this.MkPTSCodesbtn);
             this.tabPage3.Controls.Add(this.label8);
@@ -543,13 +565,15 @@
             this.tabPage3.Controls.Add(this.PTS_sampleName);
             this.tabPage3.Controls.Add(this.PTS_lot);
             this.tabPage3.Controls.Add(this.PTS_initial);
+            this.tabPage3.ForeColor = System.Drawing.Color.WhiteSmoke;
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // ClearPTS
             // 
             resources.ApplyResources(this.ClearPTS, "ClearPTS");
+            this.ClearPTS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.ClearPTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
             this.ClearPTS.Name = "ClearPTS";
             this.ClearPTS.UseVisualStyleBackColor = true;
             this.ClearPTS.Click += new System.EventHandler(this.ClearPTS_Click);
@@ -557,6 +581,8 @@
             // MkPTSCodesbtn
             // 
             resources.ApplyResources(this.MkPTSCodesbtn, "MkPTSCodesbtn");
+            this.MkPTSCodesbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.MkPTSCodesbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.MkPTSCodesbtn.Name = "MkPTSCodesbtn";
             this.MkPTSCodesbtn.UseVisualStyleBackColor = true;
             this.MkPTSCodesbtn.Click += new System.EventHandler(this.button1_Click);
@@ -569,21 +595,25 @@
             // label7
             // 
             resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label7.Name = "label7";
             // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label6.Name = "label6";
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Name = "label5";
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Name = "label4";
             // 
             // PTS_dilCode
@@ -650,7 +680,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.Controls.Add(this.PTSTAB);
             this.Name = "Form1";
             this.PTSTAB.ResumeLayout(false);
@@ -696,9 +726,6 @@
         private System.Windows.Forms.Button CoAPDFBtn;
         private System.Windows.Forms.Button QRRPDFBtn;
         private System.Windows.Forms.TextBox QRRFileNameBx;
-        private System.Windows.Forms.Label ComboPDFSection;
-        private System.Windows.Forms.Label CoALabel;
-        private System.Windows.Forms.Label QRRLabel;
         private System.Windows.Forms.Button QRRFindBtn;
         private System.Windows.Forms.Button clrCoABtn;
         private System.Windows.Forms.ComboBox VendorBox1;

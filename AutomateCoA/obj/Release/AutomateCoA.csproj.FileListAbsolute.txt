@@ -84,3 +84,15 @@ C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\obj\Release\dje
 C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\obj\Release\AutomateCoA.csproj.CopyComplete
 C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\obj\Release\AutomateCoA.exe
 C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\obj\Release\AutomateCoA.pdb
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\BarcodeStandard.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.Drawing.Common.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.Text.Json.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.ValueTuple.dll
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.Text.Json.xml
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\phall3\Documents\repos\AutomateCoA\LabBuddy\AutomateCoA\bin\Release\System.ValueTuple.xml

@@ -51,6 +51,7 @@ namespace AutomateCoA
         //cant think of a better way to scope
         private string qrrPDFPath;
         private string coaPDFPath;
+        private bool bcrMode = false;
         
 
         //makes barcode generator work somehow.  DONT TOUCH
@@ -109,29 +110,59 @@ namespace AutomateCoA
         //open and edit QRR
         private void FindQRR()
         {
-            OpenFileDialog _fileDialog = new OpenFileDialog();
-            _fileDialog.InitialDirectory = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Quarantine Release\\Digital QRR - Test Set";
-
-            if (_fileDialog.ShowDialog() == DialogResult.OK)
+            if(bcrMode == false)
             {
-                //launch and open an instance of word
-                Word.Application wordApp = new Word.Application();
-                object fileName = _fileDialog.FileName;
-                object readOnly = false;
-                object isVisible = true;
-                //easy way to handle random refs I dont care about
-                object iDontCare = System.Reflection.Missing.Value;
+                OpenFileDialog _fileDialog = new OpenFileDialog();
+                _fileDialog.InitialDirectory = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Quarantine Release\\Digital QRR - Test Set";
 
-                wordApp.Visible = true;
+                if (_fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //launch and open an instance of word
+                    Word.Application wordApp = new Word.Application();
+                    object fileName = _fileDialog.FileName;
+                    object readOnly = false;
+                    object isVisible = true;
+                    //easy way to handle random refs I dont care about
+                    object iDontCare = System.Reflection.Missing.Value;
 
-                Word.Document qrrDoc = wordApp.Documents.Open(ref fileName, ref iDontCare, ref readOnly,
-                                                                                        ref iDontCare, ref iDontCare, ref iDontCare,
-                                                                                        ref iDontCare, ref iDontCare, ref iDontCare,
-                                                                                        ref iDontCare, ref iDontCare, ref isVisible,
-                                                                                        ref iDontCare, ref iDontCare, ref iDontCare, ref iDontCare);
-                //opens doc with track changes turned off
-                qrrDoc.TrackRevisions = false;
-                qrrDoc.Activate();
+                    wordApp.Visible = true;
+
+                    Word.Document qrrDoc = wordApp.Documents.Open(ref fileName, ref iDontCare, ref readOnly,
+                                                                                            ref iDontCare, ref iDontCare, ref iDontCare,
+                                                                                            ref iDontCare, ref iDontCare, ref iDontCare,
+                                                                                            ref iDontCare, ref iDontCare, ref isVisible,
+                                                                                            ref iDontCare, ref iDontCare, ref iDontCare, ref iDontCare);
+                    //opens doc with track changes turned off
+                    qrrDoc.TrackRevisions = false;
+                    qrrDoc.Activate();
+                }          
+            }
+            if(bcrMode == true)
+            {
+                OpenFileDialog _fileDialog = new OpenFileDialog();
+                _fileDialog.InitialDirectory = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Quarantine Release\\Digital BCR - Test Set";
+
+                if (_fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //launch and open an instance of word
+                    Word.Application wordApp = new Word.Application();
+                    object fileName = _fileDialog.FileName;
+                    object readOnly = false;
+                    object isVisible = true;
+                    //easy way to handle random refs I dont care about
+                    object iDontCare = System.Reflection.Missing.Value;
+
+                    wordApp.Visible = true;
+
+                    Word.Document qrrDoc = wordApp.Documents.Open(ref fileName, ref iDontCare, ref readOnly,
+                                                                                            ref iDontCare, ref iDontCare, ref iDontCare,
+                                                                                            ref iDontCare, ref iDontCare, ref iDontCare,
+                                                                                            ref iDontCare, ref iDontCare, ref isVisible,
+                                                                                            ref iDontCare, ref iDontCare, ref iDontCare, ref iDontCare);
+                    //opens doc with track changes turned off
+                    qrrDoc.TrackRevisions = false;
+                    qrrDoc.Activate();
+                }
             }
         }
 
@@ -261,7 +292,6 @@ namespace AutomateCoA
                 MessageBox.Show("Tell Pete this happened: " + myError.ToString().Substring(0, errorLength));
             }
         }
-
 
         //find QRR PDF
         private void QRRPDF()
@@ -394,256 +424,62 @@ namespace AutomateCoA
             ClearControls();
         }
 
-        
-        
-        private void QRRFindBtn_Enter(object sender, EventArgs e)
+        private void Btn_Enter(object sender, EventArgs e)
         {
-            int width = QRRFindBtn.Width;
-            int height = QRRFindBtn.Height;
+            Button activeButton = (Button)sender;
+                        
+            int width =activeButton.Width;
+            int height = activeButton.Height;
             int scaleUp = 10;
 
-            QRRFindBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            QRRFindBtn.Font = new Font("", 13, FontStyle.Bold);
+            activeButton.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
+            activeButton.Font = new Font("", 13, FontStyle.Bold);
         }
 
-        private void QRRFindBtn_Leave(object sender, EventArgs e)
+        private void Btn_Leave(object sender, EventArgs e)
         {
-            int width = QRRFindBtn.Width;
-            int height = QRRFindBtn.Height;
+            Button activeButton = (Button)sender;
+            
+            int width = activeButton.Width;
+            int height = activeButton.Height;
             int scaleDown = -10;
 
-            QRRFindBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            QRRFindBtn.Font = new Font("", 11, FontStyle.Regular);
+            activeButton.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
+            activeButton.Font = new Font("", 11, FontStyle.Regular);            
         }
 
-        private void QRRFindMouse_Enter(object sender, EventArgs e)
+        private void QrrRadBtn_CheckedChanged(object sender, EventArgs e)
         {
-            int width = QRRFindBtn.Width;
-            int height = QRRFindBtn.Height;
-            int scaleUp = 10;
+            QRRFindBtn.Text = "Choose QRR";
+            bcrMode = false;
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            FetchBtn1.Visible = true;
+            label28.Visible = true;
+            label29.Visible = true;
+            QRRPDFBtn.Text = "Choose QRR PDF";
+            CoAPDFBtn.Text = "Choose CoA PDF";
+            label30.Text = "4)";
+            label31.Text = "5)";
 
-            QRRFindBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            QRRFindBtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void QRRFindMouse_Leave(object sender, EventArgs e)
-        {
-            int width = QRRFindBtn.Width;
-            int height = QRRFindBtn.Height;
-            int scaleDown = -10;
-
-            QRRFindBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            QRRFindBtn.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-        private void FetchBtn1_MouseEnter(object sender, EventArgs e)
-        {
-            int width = FetchBtn1.Width;
-            int height = FetchBtn1.Height;
-            int scaleUp = 10;
-
-            FetchBtn1.Size = new Size(width + scaleUp, height + scaleUp);
-            FetchBtn1.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void FetchBtn1_MouseLeave(object sender, EventArgs e)
-        {
-            int width = FetchBtn1.Width;
-            int height = FetchBtn1.Height;
-            int scaleDown = -10;
-
-            FetchBtn1.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            FetchBtn1.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-        private void FetchBtnBtn_Enter(object sender, EventArgs e)
-        {
-            int width = FetchBtn1.Width;
-            int height = FetchBtn1.Height;
-            int scaleUp = 10;
-
-            FetchBtn1.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            FetchBtn1.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void FetchBtn_Leave(object sender, EventArgs e)
-        {
-            int width = FetchBtn1.Width;
-            int height = FetchBtn1.Height;
-            int scaleDown = -10;
-
-            FetchBtn1.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            FetchBtn1.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-        private void CoAPDFBtn_MouseEnter(object sender, EventArgs e)
-        {
-            int width = CoAPDFBtn.Width;
-            int height = CoAPDFBtn.Height;
-            int scaleUp = 10;
-
-            CoAPDFBtn.Size = new Size(width + scaleUp, height + scaleUp);
-            CoAPDFBtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void CoAPDFBtn_MouseLeave(object sender, EventArgs e)
-        {
-            int width = CoAPDFBtn.Width;
-            int height = CoAPDFBtn.Height;
-            int scaleDown = -10;
-
-            CoAPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            CoAPDFBtn.Font = new Font("", 11, FontStyle.Regular);
 
         }
 
-        private void CoAPDFBtn_Enter(object sender, EventArgs e)
+        private void BcrRadBtn_CheckedChanged(object sender, EventArgs e)
         {
-            int width = CoAPDFBtn.Width;
-            int height = CoAPDFBtn.Height;
-            int scaleUp = 10;
-
-            CoAPDFBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            CoAPDFBtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void CoAPDFBtn_Leave(object sender, EventArgs e)
-        {
-            int width = CoAPDFBtn.Width;
-            int height = CoAPDFBtn.Height;
-            int scaleDown = -10;
-
-            CoAPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            CoAPDFBtn.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-
-
-
-
-        private void SaveFinalPDFBtn_MouseEnter(object sender, EventArgs e)
-        {
-            int width = SaveFinalPDFBtn.Width;
-            int height = SaveFinalPDFBtn.Height;
-            int scaleUp = 10;
-
-            SaveFinalPDFBtn.Size = new Size(width + scaleUp, height + scaleUp);
-            SaveFinalPDFBtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void SaveFinalPDFBtn_MouseLeave(object sender, EventArgs e)
-        {
-            int width = SaveFinalPDFBtn.Width;
-            int height = SaveFinalPDFBtn.Height;
-            int scaleDown = -10;
-
-            SaveFinalPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            SaveFinalPDFBtn.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-        private void SaveFinalPDFBtn_Enter(object sender, EventArgs e)
-        {
-            int width = SaveFinalPDFBtn.Width;
-            int height = SaveFinalPDFBtn.Height;
-            int scaleUp = 10;
-
-            SaveFinalPDFBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            SaveFinalPDFBtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void SaveFinalPDFBtn_Leave(object sender, EventArgs e)
-        {
-            int width = SaveFinalPDFBtn.Width;
-            int height = SaveFinalPDFBtn.Height;
-            int scaleDown = -10;
-
-            SaveFinalPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            SaveFinalPDFBtn.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-
-
-
-        private void clrCoABtn_MouseEnter(object sender, EventArgs e)
-        {
-            int width = clrCoABtn.Width;
-            int height = clrCoABtn.Height;
-            int scaleUp = 10;
-
-            clrCoABtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            clrCoABtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void clrCoABtn_MouseLeave(object sender, EventArgs e)
-        {
-            int width = clrCoABtn.Width;
-            int height = clrCoABtn.Height;
-            int scaleDown = -10;
-
-            clrCoABtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            clrCoABtn.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-        private void clrCoABtn_Enter(object sender, EventArgs e)
-        {
-            int width = clrCoABtn.Width;
-            int height = clrCoABtn.Height;
-            int scaleUp = 10;
-
-            clrCoABtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            clrCoABtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void clrCoABtn_Leave(object sender, EventArgs e)
-        {
-            int width = clrCoABtn.Width;
-            int height = clrCoABtn.Height;
-            int scaleDown = -10;
-
-            clrCoABtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            clrCoABtn.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-
-
-        private void QRRPDFBtn_MouseEnter(object sender, EventArgs e)
-        {
-            int width = QRRPDFBtn.Width;
-            int height = QRRPDFBtn.Height;
-            int scaleUp = 10;
-
-            QRRPDFBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            QRRPDFBtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void QRRPDFBtn_MouseLeave(object sender, EventArgs e)
-        {
-            int width = QRRPDFBtn.Width;
-            int height = QRRPDFBtn.Height;
-            int scaleDown = -10;
-
-            QRRPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            QRRPDFBtn.Font = new Font("", 11, FontStyle.Regular);
-        }
-
-        private void QRRPDFBtn_Enter(object sender, EventArgs e)
-        {
-            int width = QRRPDFBtn.Width;
-            int height = QRRPDFBtn.Height;
-            int scaleUp = 10;
-
-            QRRPDFBtn.Size = new System.Drawing.Size(width + scaleUp, height + scaleUp);
-            QRRPDFBtn.Font = new Font("", 13, FontStyle.Bold);
-        }
-
-        private void QRRPDFBtn_Leave(object sender, EventArgs e)
-        {
-            int width = QRRPDFBtn.Width;
-            int height = QRRPDFBtn.Height;
-            int scaleDown = -10;
-
-            QRRPDFBtn.Size = new System.Drawing.Size(width + scaleDown, height + scaleDown);
-            QRRPDFBtn.Font = new Font("", 11, FontStyle.Regular);
+            QRRFindBtn.Text = "Choose BCR";
+            bcrMode = true;
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            FetchBtn1.Visible = false;
+            label28.Visible = false;
+            label29.Visible = false;
+            QRRPDFBtn.Text = "Choose BCR PDF";
+            CoAPDFBtn.Text = "Attachment Bucket Data";
+            label30.Text = "2)";
+            label31.Text = "3";
         }
 
 
@@ -791,6 +627,7 @@ namespace AutomateCoA
         {
             ClearControls();
         }
-  
+
+       
     }
 }

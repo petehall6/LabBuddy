@@ -34,6 +34,8 @@ namespace AutomateCoA
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PTSTAB = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BcrRadBtn = new System.Windows.Forms.RadioButton();
+            this.QrrRadBtn = new System.Windows.Forms.RadioButton();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -120,8 +122,6 @@ namespace AutomateCoA
             this.PTS_sampleName = new System.Windows.Forms.TextBox();
             this.PTS_lot = new System.Windows.Forms.TextBox();
             this.PTS_initial = new System.Windows.Forms.TextBox();
-            this.QrrRadBtn = new System.Windows.Forms.RadioButton();
-            this.BcrRadBtn = new System.Windows.Forms.RadioButton();
             this.PTSTAB.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -187,6 +187,24 @@ namespace AutomateCoA
             this.tabPage1.Controls.Add(this.FetchBtn1);
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
+            // 
+            // BcrRadBtn
+            // 
+            resources.ApplyResources(this.BcrRadBtn, "BcrRadBtn");
+            this.BcrRadBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BcrRadBtn.Name = "BcrRadBtn";
+            this.BcrRadBtn.UseVisualStyleBackColor = true;
+            this.BcrRadBtn.CheckedChanged += new System.EventHandler(this.BcrRadBtn_CheckedChanged);
+            // 
+            // QrrRadBtn
+            // 
+            resources.ApplyResources(this.QrrRadBtn, "QrrRadBtn");
+            this.QrrRadBtn.Checked = true;
+            this.QrrRadBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.QrrRadBtn.Name = "QrrRadBtn";
+            this.QrrRadBtn.TabStop = true;
+            this.QrrRadBtn.UseVisualStyleBackColor = true;
+            this.QrrRadBtn.CheckedChanged += new System.EventHandler(this.QrrRadBtn_CheckedChanged);
             // 
             // label31
             // 
@@ -891,24 +909,6 @@ namespace AutomateCoA
             // 
             resources.ApplyResources(this.PTS_initial, "PTS_initial");
             this.PTS_initial.Name = "PTS_initial";
-            // 
-            // QrrRadBtn
-            // 
-            resources.ApplyResources(this.QrrRadBtn, "QrrRadBtn");
-            this.QrrRadBtn.Checked = true;
-            this.QrrRadBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.QrrRadBtn.Name = "QrrRadBtn";
-            this.QrrRadBtn.TabStop = true;
-            this.QrrRadBtn.UseVisualStyleBackColor = true;
-            this.QrrRadBtn.CheckedChanged += new System.EventHandler(this.QrrRadBtn_CheckedChanged);
-            // 
-            // BcrRadBtn
-            // 
-            resources.ApplyResources(this.BcrRadBtn, "BcrRadBtn");
-            this.BcrRadBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.BcrRadBtn.Name = "BcrRadBtn";
-            this.BcrRadBtn.UseVisualStyleBackColor = true;
-            this.BcrRadBtn.CheckedChanged += new System.EventHandler(this.BcrRadBtn_CheckedChanged);
             // 
             // Form1
             // 

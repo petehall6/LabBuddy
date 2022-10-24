@@ -19,12 +19,12 @@ using Spire.Pdf;
 using BarcodeLib;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.CompilerServices;
+using Microsoft.Office.Core;
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 /*TODO
- * redo layout
- * pick a color pallete 
+ *
  * design
  * make new directory with QRR and labels .docs.
  * fix exception handling
@@ -314,12 +314,21 @@ namespace AutomateCoA
         //find CoAPDF
         private void CoAPDF()
         {
+            string pdfLocation;
+
+            if (bcrMode == true)
+            {
+                pdfLocation = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\Attachment Bucket";
+            }
+            else
+            {
+                pdfLocation = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            }
+           
             OpenFileDialog _fileDialog = new OpenFileDialog();
             _fileDialog.Filter = "|*.pdf";
-            _fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            _fileDialog.InitialDirectory = pdfLocation;
             _fileDialog.ShowDialog();
-          
-            
 
             coaPDFPath = _fileDialog.FileName.ToString();
 
@@ -330,41 +339,34 @@ namespace AutomateCoA
 
         //combine QRR and COA then save to desktop
         private void SaveFinalPDF()
+    {
+        try
         {
-            try
-            {
-                //store paths in string array
-                string[] pdfPaths = { qrrPDFPath, coaPDFPath };
+            PdfDocument firstPDF = new PdfDocument(qrrPDFPath);
+            PdfDocument secondPDF = new PdfDocument(coaPDFPath);
+            PdfDocument finalPdf = new PdfDocument();
 
-                //load all pdfs into an PdfDocument obj and store all objs in PdfDocument array
-                PdfDocument[] pdfs = new PdfDocument[pdfPaths.Length];
+            //gets rid of label page so only QRR/BCR info pages are saved
+            int firstPDFLen = firstPDF.Pages.Count-2;
+          
+            finalPdf.InsertPageRange(firstPDF, 0, firstPDFLen);
+            finalPdf.AppendPage(secondPDF);     
 
-                for (int i = 0; i < pdfPaths.Length; i++)
-                {
-                    pdfs[i] = new PdfDocument(pdfPaths[i]);
-                }
+            string finalPdfPathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string finalPdfPathFiixFolder = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Fiix Scanned Documents";
+            string finalPdfName = FinalPDFBx.Text;
 
-                PdfDocument finalPdf = new PdfDocument();
-
-                //just first page of QRR and all pages of CoA
-                finalPdf.InsertPage(pdfs[0], 0);
-                finalPdf.AppendPage(pdfs[1]);
-
-                string finalPdfPathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                string finalPdfPathFiixFolder = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Fiix Scanned Documents";
-                string finalPdfName = FinalPDFBx.Text;
-
-                finalPdf.SaveToFile(finalPdfPathFiixFolder + "\\" + finalPdfName + ".pdf");
-                finalPdf.SaveToFile(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
-                Process.Start(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("Please select both .pdfs");
-            }
-
+            finalPdf.SaveToFile(finalPdfPathFiixFolder + "\\" + finalPdfName + ".pdf");
+            finalPdf.SaveToFile(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
+            Process.Start(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
         }
+
+        catch (Exception)
+        {
+            MessageBox.Show("Please select both .pdfs");
+        }
+
+    }
 
         //clear controls
         void ClearControls()
@@ -452,6 +454,9 @@ namespace AutomateCoA
         {
             QRRFindBtn.Text = "Choose QRR";
             bcrMode = false;
+            ItemBox1.Visible = true;
+            LotBox1.Visible = true;
+            VendorBox1.Visible = true;
             label1.Visible = true;
             label2.Visible = true;
             label3.Visible = true;
@@ -462,14 +467,15 @@ namespace AutomateCoA
             CoAPDFBtn.Text = "Choose CoA PDF";
             label30.Text = "4)";
             label31.Text = "5)";
-
-
         }
 
         private void BcrRadBtn_CheckedChanged(object sender, EventArgs e)
         {
             QRRFindBtn.Text = "Choose BCR";
             bcrMode = true;
+            ItemBox1.Visible = false;
+            LotBox1.Visible = false;
+            VendorBox1.Visible = false;
             label1.Visible = false;
             label2.Visible = false;
             label3.Visible = false;
@@ -479,7 +485,7 @@ namespace AutomateCoA
             QRRPDFBtn.Text = "Choose BCR PDF";
             CoAPDFBtn.Text = "Attachment Bucket Data";
             label30.Text = "2)";
-            label31.Text = "3";
+            label31.Text = "3)";
         }
 
 
@@ -628,6 +634,6 @@ namespace AutomateCoA
             ClearControls();
         }
 
-       
+     
     }
 }

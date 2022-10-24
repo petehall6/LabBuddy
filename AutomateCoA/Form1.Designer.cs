@@ -34,6 +34,13 @@ namespace AutomateCoA
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PTSTAB = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BcrRadBtn = new System.Windows.Forms.RadioButton();
+            this.QrrRadBtn = new System.Windows.Forms.RadioButton();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +58,24 @@ namespace AutomateCoA
             this.ItemBox1 = new System.Windows.Forms.TextBox();
             this.FetchBtn1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.bud6code = new System.Windows.Forms.PictureBox();
             this.RightClickMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,6 +148,7 @@ namespace AutomateCoA
             // 
             // PTSTAB
             // 
+            this.PTSTAB.AllowDrop = true;
             resources.ApplyResources(this.PTSTAB, "PTSTAB");
             this.PTSTAB.Controls.Add(this.tabPage1);
             this.PTSTAB.Controls.Add(this.tabPage2);
@@ -134,7 +160,15 @@ namespace AutomateCoA
             // 
             // tabPage1
             // 
+            this.tabPage1.AllowDrop = true;
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.tabPage1.Controls.Add(this.BcrRadBtn);
+            this.tabPage1.Controls.Add(this.QrrRadBtn);
+            this.tabPage1.Controls.Add(this.label31);
+            this.tabPage1.Controls.Add(this.label30);
+            this.tabPage1.Controls.Add(this.label29);
+            this.tabPage1.Controls.Add(this.label28);
+            this.tabPage1.Controls.Add(this.label27);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
@@ -154,22 +188,70 @@ namespace AutomateCoA
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             // 
+            // BcrRadBtn
+            // 
+            resources.ApplyResources(this.BcrRadBtn, "BcrRadBtn");
+            this.BcrRadBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BcrRadBtn.Name = "BcrRadBtn";
+            this.BcrRadBtn.UseVisualStyleBackColor = true;
+            this.BcrRadBtn.CheckedChanged += new System.EventHandler(this.BcrRadBtn_CheckedChanged);
+            // 
+            // QrrRadBtn
+            // 
+            resources.ApplyResources(this.QrrRadBtn, "QrrRadBtn");
+            this.QrrRadBtn.Checked = true;
+            this.QrrRadBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.QrrRadBtn.Name = "QrrRadBtn";
+            this.QrrRadBtn.TabStop = true;
+            this.QrrRadBtn.UseVisualStyleBackColor = true;
+            this.QrrRadBtn.CheckedChanged += new System.EventHandler(this.QrrRadBtn_CheckedChanged);
+            // 
+            // label31
+            // 
+            resources.ApplyResources(this.label31, "label31");
+            this.label31.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label31.Name = "label31";
+            // 
+            // label30
+            // 
+            resources.ApplyResources(this.label30, "label30");
+            this.label30.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label30.Name = "label30";
+            // 
+            // label29
+            // 
+            resources.ApplyResources(this.label29, "label29");
+            this.label29.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label29.Name = "label29";
+            // 
+            // label28
+            // 
+            resources.ApplyResources(this.label28, "label28");
+            this.label28.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label28.Name = "label28";
+            // 
+            // label27
+            // 
+            resources.ApplyResources(this.label27, "label27");
+            this.label27.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label27.Name = "label27";
+            // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Name = "label3";
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Name = "label2";
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Name = "label1";
             // 
             // SaveFinalPDFBtn
@@ -183,15 +265,15 @@ namespace AutomateCoA
             this.SaveFinalPDFBtn.Name = "SaveFinalPDFBtn";
             this.SaveFinalPDFBtn.UseVisualStyleBackColor = false;
             this.SaveFinalPDFBtn.Click += new System.EventHandler(this.SaveFinalPDFBtn_Click);
-            this.SaveFinalPDFBtn.Enter += new System.EventHandler(this.SaveFinalPDFBtn_Enter);
-            this.SaveFinalPDFBtn.Leave += new System.EventHandler(this.SaveFinalPDFBtn_Leave);
-            this.SaveFinalPDFBtn.MouseEnter += new System.EventHandler(this.SaveFinalPDFBtn_MouseEnter);
-            this.SaveFinalPDFBtn.MouseLeave += new System.EventHandler(this.SaveFinalPDFBtn_MouseLeave);
+            this.SaveFinalPDFBtn.Enter += new System.EventHandler(this.Btn_Enter);
+            this.SaveFinalPDFBtn.Leave += new System.EventHandler(this.Btn_Leave);
+            this.SaveFinalPDFBtn.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.SaveFinalPDFBtn.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // PDFNameLabel
             // 
             resources.ApplyResources(this.PDFNameLabel, "PDFNameLabel");
-            this.PDFNameLabel.ForeColor = System.Drawing.Color.White;
+            this.PDFNameLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.PDFNameLabel.Name = "PDFNameLabel";
             // 
             // FinalPDFBx
@@ -201,6 +283,7 @@ namespace AutomateCoA
             // 
             // CoAFileNameBx
             // 
+            this.CoAFileNameBx.AllowDrop = true;
             this.CoAFileNameBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             resources.ApplyResources(this.CoAFileNameBx, "CoAFileNameBx");
             this.CoAFileNameBx.Name = "CoAFileNameBx";
@@ -216,10 +299,10 @@ namespace AutomateCoA
             this.CoAPDFBtn.Name = "CoAPDFBtn";
             this.CoAPDFBtn.UseVisualStyleBackColor = true;
             this.CoAPDFBtn.Click += new System.EventHandler(this.CoAPDFBtn_Click);
-            this.CoAPDFBtn.Enter += new System.EventHandler(this.CoAPDFBtn_Enter);
-            this.CoAPDFBtn.Leave += new System.EventHandler(this.CoAPDFBtn_Leave);
-            this.CoAPDFBtn.MouseEnter += new System.EventHandler(this.CoAPDFBtn_MouseEnter);
-            this.CoAPDFBtn.MouseLeave += new System.EventHandler(this.CoAPDFBtn_Leave);
+            this.CoAPDFBtn.Enter += new System.EventHandler(this.Btn_Enter);
+            this.CoAPDFBtn.Leave += new System.EventHandler(this.Btn_Leave);
+            this.CoAPDFBtn.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.CoAPDFBtn.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // QRRPDFBtn
             // 
@@ -231,13 +314,14 @@ namespace AutomateCoA
             this.QRRPDFBtn.Name = "QRRPDFBtn";
             this.QRRPDFBtn.UseVisualStyleBackColor = true;
             this.QRRPDFBtn.Click += new System.EventHandler(this.QRRPDFBtn_Click);
-            this.QRRPDFBtn.Enter += new System.EventHandler(this.QRRPDFBtn_Enter);
-            this.QRRPDFBtn.Leave += new System.EventHandler(this.QRRPDFBtn_Leave);
-            this.QRRPDFBtn.MouseEnter += new System.EventHandler(this.QRRPDFBtn_MouseEnter);
-            this.QRRPDFBtn.MouseLeave += new System.EventHandler(this.QRRPDFBtn_MouseLeave);
+            this.QRRPDFBtn.Enter += new System.EventHandler(this.Btn_Enter);
+            this.QRRPDFBtn.Leave += new System.EventHandler(this.Btn_Leave);
+            this.QRRPDFBtn.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.QRRPDFBtn.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // QRRFileNameBx
             // 
+            this.QRRFileNameBx.AllowDrop = true;
             resources.ApplyResources(this.QRRFileNameBx, "QRRFileNameBx");
             this.QRRFileNameBx.Name = "QRRFileNameBx";
             this.QRRFileNameBx.TabStop = false;
@@ -251,12 +335,12 @@ namespace AutomateCoA
             this.QRRFindBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.QRRFindBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.QRRFindBtn.Name = "QRRFindBtn";
-            this.QRRFindBtn.UseVisualStyleBackColor = false;
+            this.QRRFindBtn.UseVisualStyleBackColor = true;
             this.QRRFindBtn.Click += new System.EventHandler(this.QRRFindBtn_Click_1);
-            this.QRRFindBtn.Enter += new System.EventHandler(this.QRRFindBtn_Enter);
-            this.QRRFindBtn.Leave += new System.EventHandler(this.QRRFindBtn_Leave);
-            this.QRRFindBtn.MouseEnter += new System.EventHandler(this.QRRFindMouse_Enter);
-            this.QRRFindBtn.MouseLeave += new System.EventHandler(this.QRRFindMouse_Leave);
+            this.QRRFindBtn.Enter += new System.EventHandler(this.Btn_Enter);
+            this.QRRFindBtn.Leave += new System.EventHandler(this.Btn_Leave);
+            this.QRRFindBtn.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.QRRFindBtn.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // clrCoABtn
             // 
@@ -270,10 +354,10 @@ namespace AutomateCoA
             this.clrCoABtn.Name = "clrCoABtn";
             this.clrCoABtn.UseVisualStyleBackColor = false;
             this.clrCoABtn.Click += new System.EventHandler(this.clrCoABtn_Click);
-            this.clrCoABtn.Enter += new System.EventHandler(this.clrCoABtn_Enter);
-            this.clrCoABtn.Leave += new System.EventHandler(this.clrCoABtn_Leave);
-            this.clrCoABtn.MouseEnter += new System.EventHandler(this.clrCoABtn_MouseEnter);
-            this.clrCoABtn.MouseLeave += new System.EventHandler(this.clrCoABtn_MouseLeave);
+            this.clrCoABtn.Enter += new System.EventHandler(this.Btn_Enter);
+            this.clrCoABtn.Leave += new System.EventHandler(this.Btn_Leave);
+            this.clrCoABtn.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.clrCoABtn.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // VendorBox1
             // 
@@ -321,14 +405,32 @@ namespace AutomateCoA
             this.FetchBtn1.Name = "FetchBtn1";
             this.FetchBtn1.UseVisualStyleBackColor = false;
             this.FetchBtn1.Click += new System.EventHandler(this.FetchBtn1_Click_1);
-            this.FetchBtn1.Enter += new System.EventHandler(this.FetchBtnBtn_Enter);
-            this.FetchBtn1.Leave += new System.EventHandler(this.FetchBtn_Leave);
-            this.FetchBtn1.MouseEnter += new System.EventHandler(this.FetchBtn1_MouseEnter);
-            this.FetchBtn1.MouseLeave += new System.EventHandler(this.FetchBtn1_MouseLeave);
+            this.FetchBtn1.Enter += new System.EventHandler(this.Btn_Enter);
+            this.FetchBtn1.Leave += new System.EventHandler(this.Btn_Leave);
+            this.FetchBtn1.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.FetchBtn1.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.tabPage2.Controls.Add(this.label24);
+            this.tabPage2.Controls.Add(this.label25);
+            this.tabPage2.Controls.Add(this.label26);
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.label22);
+            this.tabPage2.Controls.Add(this.label23);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.bud6code);
             this.tabPage2.Controls.Add(this.lot6code);
             this.tabPage2.Controls.Add(this.bud5code);
@@ -357,6 +459,114 @@ namespace AutomateCoA
             this.tabPage2.Controls.Add(this.lot1);
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
+            // 
+            // label24
+            // 
+            resources.ApplyResources(this.label24, "label24");
+            this.label24.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label24.Name = "label24";
+            // 
+            // label25
+            // 
+            resources.ApplyResources(this.label25, "label25");
+            this.label25.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label25.Name = "label25";
+            // 
+            // label26
+            // 
+            resources.ApplyResources(this.label26, "label26");
+            this.label26.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label26.Name = "label26";
+            // 
+            // label21
+            // 
+            resources.ApplyResources(this.label21, "label21");
+            this.label21.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label21.Name = "label21";
+            // 
+            // label22
+            // 
+            resources.ApplyResources(this.label22, "label22");
+            this.label22.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label22.Name = "label22";
+            // 
+            // label23
+            // 
+            resources.ApplyResources(this.label23, "label23");
+            this.label23.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label23.Name = "label23";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label18.Name = "label18";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label19.Name = "label19";
+            // 
+            // label20
+            // 
+            resources.ApplyResources(this.label20, "label20");
+            this.label20.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label20.Name = "label20";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label15.Name = "label15";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label16.Name = "label16";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label17.Name = "label17";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label12.Name = "label12";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label13.Name = "label13";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label14.Name = "label14";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label11.Name = "label11";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label10.Name = "label10";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Name = "label9";
             // 
             // bud6code
             // 
@@ -505,19 +715,31 @@ namespace AutomateCoA
             // 
             resources.ApplyResources(this.clearButton, "clearButton");
             this.clearButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.clearButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.clearButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
             this.clearButton.Name = "clearButton";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click_1);
+            this.clearButton.Enter += new System.EventHandler(this.Btn_Enter);
+            this.clearButton.Leave += new System.EventHandler(this.Btn_Leave);
+            this.clearButton.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.clearButton.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // MakeBarCodeBtn
             // 
             resources.ApplyResources(this.MakeBarCodeBtn, "MakeBarCodeBtn");
             this.MakeBarCodeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.MakeBarCodeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.MakeBarCodeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.MakeBarCodeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.MakeBarCodeBtn.Name = "MakeBarCodeBtn";
             this.MakeBarCodeBtn.UseVisualStyleBackColor = true;
             this.MakeBarCodeBtn.Click += new System.EventHandler(this.MakeBarCodeBtn_Click_1);
+            this.MakeBarCodeBtn.Enter += new System.EventHandler(this.Btn_Enter);
+            this.MakeBarCodeBtn.Leave += new System.EventHandler(this.Btn_Leave);
+            this.MakeBarCodeBtn.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.MakeBarCodeBtn.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // bud1code
             // 
@@ -565,27 +787,39 @@ namespace AutomateCoA
             this.tabPage3.Controls.Add(this.PTS_sampleName);
             this.tabPage3.Controls.Add(this.PTS_lot);
             this.tabPage3.Controls.Add(this.PTS_initial);
-            this.tabPage3.ForeColor = System.Drawing.Color.WhiteSmoke;
             resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage3.Name = "tabPage3";
             // 
             // ClearPTS
             // 
             resources.ApplyResources(this.ClearPTS, "ClearPTS");
             this.ClearPTS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.ClearPTS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.ClearPTS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClearPTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(87)))), ((int)(((byte)(59)))));
             this.ClearPTS.Name = "ClearPTS";
             this.ClearPTS.UseVisualStyleBackColor = true;
             this.ClearPTS.Click += new System.EventHandler(this.ClearPTS_Click);
+            this.ClearPTS.Enter += new System.EventHandler(this.Btn_Enter);
+            this.ClearPTS.Leave += new System.EventHandler(this.Btn_Leave);
+            this.ClearPTS.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.ClearPTS.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // MkPTSCodesbtn
             // 
             resources.ApplyResources(this.MkPTSCodesbtn, "MkPTSCodesbtn");
             this.MkPTSCodesbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.MkPTSCodesbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.MkPTSCodesbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.MkPTSCodesbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(222)))), ((int)(((byte)(82)))));
             this.MkPTSCodesbtn.Name = "MkPTSCodesbtn";
             this.MkPTSCodesbtn.UseVisualStyleBackColor = true;
             this.MkPTSCodesbtn.Click += new System.EventHandler(this.button1_Click);
+            this.MkPTSCodesbtn.Enter += new System.EventHandler(this.Btn_Enter);
+            this.MkPTSCodesbtn.Leave += new System.EventHandler(this.Btn_Leave);
+            this.MkPTSCodesbtn.MouseEnter += new System.EventHandler(this.Btn_Enter);
+            this.MkPTSCodesbtn.MouseLeave += new System.EventHandler(this.Btn_Leave);
             // 
             // label8
             // 
@@ -678,6 +912,7 @@ namespace AutomateCoA
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
@@ -779,6 +1014,31 @@ namespace AutomateCoA
         private System.Windows.Forms.TextBox PTS_sampleName;
         private System.Windows.Forms.TextBox PTS_lot;
         private System.Windows.Forms.TextBox PTS_initial;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.RadioButton BcrRadBtn;
+        private System.Windows.Forms.RadioButton QrrRadBtn;
     }
 }
 

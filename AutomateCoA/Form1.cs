@@ -347,24 +347,45 @@ namespace AutomateCoA
             PdfDocument finalPdf = new PdfDocument();
 
             //gets rid of label page so only QRR/BCR info pages are saved
-            int firstPDFLen = firstPDF.Pages.Count-2;
-          
-            finalPdf.InsertPageRange(firstPDF, 0, firstPDFLen);
-            finalPdf.AppendPage(secondPDF);     
+            int firstPDFLen = firstPDF.Pages.Count;
 
-            string finalPdfPathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string finalPdfPathFiixFolder = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Fiix Scanned Documents";
-            string finalPdfName = FinalPDFBx.Text;
+           
+                //So this looks weird.  I think it has to do with the insertpage range array initializing at zero and being exclusive
+                //so firstPDFLen has to be one less than the length you want??  Either way it works dont touch
+                if (firstPDFLen == 1)
+                {
+                    firstPDFLen = firstPDFLen - 1;
+                }
+                else
+                {
+                    firstPDFLen = firstPDFLen - 2;
+                }
 
-            finalPdf.SaveToFile(finalPdfPathFiixFolder + "\\" + finalPdfName + ".pdf");
-            finalPdf.SaveToFile(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
-            Process.Start(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
-        }
+                finalPdf.InsertPageRange(firstPDF, 0, firstPDFLen);
+                finalPdf.AppendPage(secondPDF);
 
-        catch (Exception)
-        {
-            MessageBox.Show("Please select both .pdfs");
-        }
+                string finalPdfPathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string finalPdfPathFiixFolder = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Fiix Scanned Documents";
+                string finalPdfName = FinalPDFBx.Text;
+
+                if(finalPdfName != "")
+                {
+                    finalPdf.SaveToFile(finalPdfPathFiixFolder + "\\" + finalPdfName + ".pdf");
+                    finalPdf.SaveToFile(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
+                    Process.Start(finalPdfPathDesktop + "\\" + finalPdfName + ".pdf");
+                }
+                else
+                {
+                    MessageBox.Show("Please enter final pdf name.");
+                }
+
+               
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please select two pdfs");
+            }
 
     }
 

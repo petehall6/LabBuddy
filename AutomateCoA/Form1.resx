@@ -1182,7 +1182,7 @@
     <value>NoControl</value>
   </data>
   <data name="clrCoABtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>606, 454</value>
+    <value>530, 447</value>
   </data>
   <data name="clrCoABtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>205, 50</value>

@@ -356,7 +356,7 @@ namespace AutomateCoA
                 finalPdf.AppendPage(secondPDF);
 
                 string finalPdfPathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                string finalPdfPathFiixFolder = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Fiix Scanned Documents\\";
+                string finalPdfPathFiixFolder = "Z:\\SJShare\\SJCOMMON\\DI\\MIC\\COMPONENT DOCS & VALIDATIONS\\Fiix Scanned Documents\\Added to FIIX";
                 string finalPdfName = FinalPDFBx.Text;
 
                 if(finalPdfName != "")
